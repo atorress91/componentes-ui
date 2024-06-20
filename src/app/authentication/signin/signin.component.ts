@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 
 import { SigninModel } from '@app/core/models/signin/signin.model';
 import { AuthService } from '@app/core/service/auth-service/auth.service';
-import { Response } from '@app/core/models/response-model/response.model';
 import { NotificationService } from '@app/core/service/notification-service/notification.service';
 
 @Component({
@@ -22,7 +21,7 @@ export class SigninComponent {
   loginSubmitted() {
     let signin = new SigninModel();
 
-    this.router.navigate(['/app/home']);
+    this.router.navigate(['/app/home']).then();
 
     // this.authService.loginUser(signin).subscribe((response: Response) => {
     //   if (response.success) {
