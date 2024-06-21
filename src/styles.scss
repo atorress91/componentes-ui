@@ -1,0 +1,21 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+app-footer {
+  flex-shrink: 0;
+}
+
+.btn-primary{
+  background: linear-gradient(90deg, #1a1a2e 0%, #16213e 100%);
+}
+

@@ -1,0 +1,14 @@
+.carousel-item {
+  height: 400px;
+
+  img {
+    object-fit: cover;
+    object-position: center;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.promotions_banner{
+  background: linear-gradient(90deg, #1a1a2e 0%, #16213e 100%);
+}

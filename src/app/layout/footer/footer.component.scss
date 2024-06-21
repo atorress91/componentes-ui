@@ -1,0 +1,14 @@
+footer {
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.bi {
+  font-size: 1.2rem;
+}

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouteInfo } from './header.metadata';
+import { ClientRoutes } from './client-items';
 
 @Component({
   selector: 'app-header',
@@ -12,6 +13,6 @@ export class HeaderComponent {
   constructor() { }
 
   ngOnInit(): void {
-
+    this.menuItems = ClientRoutes;
   }
 }

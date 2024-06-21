@@ -5,7 +5,6 @@ export const AdminRoutes: RouteInfo[] = [
   {
     path: '/admin/home',
     title: 'Inicio',
-    iconType: 'feather',
     icon: 'home',
     class: '',
     groupTitle: false,
@@ -16,7 +15,6 @@ export const AdminRoutes: RouteInfo[] = [
   {
     path: '/admin/invoices',
     title: 'Productos',
-    iconType: 'feather',
     icon: 'home',
     class: '',
     groupTitle: false,
@@ -27,7 +25,6 @@ export const AdminRoutes: RouteInfo[] = [
   {
     path: '/admin/products',
     title: 'Productos',
-    iconType: 'feather',
     icon: 'home',
     class: '',
     groupTitle: false,
