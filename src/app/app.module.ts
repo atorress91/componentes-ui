@@ -39,8 +39,7 @@ import { AdminModule } from "./admin/admin.module";
     ToastrModule.forRoot(),
   ],
   providers: [
-    { provide: LocationStrategy, useClass: PathLocationStrategy }
-
+    { provide: LocationStrategy, useClass: PathLocationStrategy },
   ],
   exports: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
