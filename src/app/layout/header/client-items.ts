@@ -1,7 +1,6 @@
 import { RouteInfo } from "./header.metadata";
 
 export const ClientRoutes: RouteInfo[] = [
-
   {
     path: '/app/home',
     title: 'Home',
@@ -10,28 +9,7 @@ export const ClientRoutes: RouteInfo[] = [
     groupTitle: false,
     badge: '',
     badgeClass: '',
-    submenu: [
-      {
-        path: '',
-        title: 'Opcion1',
-        icon: 'bi-house-door',
-        class: '',
-        groupTitle: true,
-        badge: '',
-        badgeClass: '',
-        submenu: [],
-      },
-      {
-        path: '',
-        title: 'Opcion2',
-        icon: 'bi-house-door',
-        class: '',
-        groupTitle: true,
-        badge: '',
-        badgeClass: '',
-        submenu: [],
-      }
-    ],
+    submenu: [],
   },
   {
     path: '/app/invoices',
@@ -46,12 +24,31 @@ export const ClientRoutes: RouteInfo[] = [
   {
     path: '/app/products',
     title: 'Home',
-    icon: '',
+    icon: 'bi-house',
     class: '',
     groupTitle: false,
     badge: '',
     badgeClass: '',
     submenu: [],
   },
-
-]
+  {
+    path: '/admin/products',
+    title: 'Mis Facturas',
+    icon: 'bi-receipt',
+    class: '',
+    groupTitle: false,
+    badge: '',
+    badgeClass: '',
+    submenu: [],
+  },
+  {
+    path: '/admin/collection',
+    title: 'Mi Colección',
+    icon: 'bi-collection',
+    class: '',
+    groupTitle: false,
+    badge: '',
+    badgeClass: '',
+    submenu: [],
+  },
+];

@@ -1,21 +1,10 @@
 import { RouteInfo } from "./header.metadata";
 
 export const AdminRoutes: RouteInfo[] = [
-
   {
     path: '/admin/home',
     title: 'Inicio',
-    icon: 'home',
-    class: '',
-    groupTitle: false,
-    badge: '',
-    badgeClass: '',
-    submenu: [],
-  },
-  {
-    path: '/admin/invoices',
-    title: 'Productos',
-    icon: 'home',
+    icon: 'bi-house-door',
     class: '',
     groupTitle: false,
     badge: '',
@@ -25,12 +14,61 @@ export const AdminRoutes: RouteInfo[] = [
   {
     path: '/admin/products',
     title: 'Productos',
-    icon: 'home',
+    icon: 'bi-box-seam',
     class: '',
     groupTitle: false,
     badge: '',
     badgeClass: '',
     submenu: [],
   },
-
-]
+  {
+    path: '/admin/invoices',
+    title: 'Facturas',
+    icon: 'bi-file-earmark-text',
+    class: '',
+    groupTitle: false,
+    badge: '',
+    badgeClass: '',
+    submenu: [],
+  },
+  {
+    path: '/admin/orders',
+    title: 'Pedidos',
+    icon: 'bi-basket',
+    class: '',
+    groupTitle: false,
+    badge: '',
+    badgeClass: '',
+    submenu: [],
+  },
+  {
+    path: '/admin/users',
+    title: 'Usuarios',
+    icon: 'bi-people',
+    class: '',
+    groupTitle: false,
+    badge: '',
+    badgeClass: '',
+    submenu: [],
+  },
+  {
+    path: '/admin/analytics',
+    title: 'Analíticas',
+    icon: 'bi-graph-up',
+    class: '',
+    groupTitle: false,
+    badge: '',
+    badgeClass: '',
+    submenu: [],
+  },
+  {
+    path: '/admin/settings',
+    title: 'Configuración',
+    icon: 'bi-gear',
+    class: '',
+    groupTitle: false,
+    badge: '',
+    badgeClass: '',
+    submenu: [],
+  },
+];
