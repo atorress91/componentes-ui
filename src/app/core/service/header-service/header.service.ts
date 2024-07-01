@@ -2,17 +2,18 @@ import { Injectable } from '@angular/core';
 
 import { AdminRoutes } from '@app/layout/header/admin-items';
 import { ClientRoutes } from '@app/layout/header/client-items';
-import { AuthService } from '@app/core/service/auth-service/auth.service';
 import { RouteInfo } from '@app/layout/header/header.metadata';
+import { TokenService } from '../token-service/token.service';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class HeaderService {
-  constructor(private authService: AuthService) { }
+  constructor(private tokenService: TokenService) { }
 
   getMenuItems(): RouteInfo[] {
-    const role = this.authService.getRole();
+    const role = this.tokenService.getRole();
     if (role === 'admin') {
       return AdminRoutes;
     }

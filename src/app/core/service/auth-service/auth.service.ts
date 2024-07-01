@@ -1,54 +1,45 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { RoleService } from '@app/core/service/role-service/role.service';
-import { User } from '@app/core/models/user/user.model';
-import { jwtDecode } from 'jwt-decode';
-
+import { SigninModel } from '@app/core/models/signin/signin.model';
+import { environment } from 'src/environments/environment';
+import { TokenService } from '../token-service/token.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private currentUserSubject: BehaviorSubject<User | null>;
-  public currentUser: Observable<User | null>;
-  private urlApi: string = 'http://localhost:8080/api/v1/auth';
+  private apiUrl: string;
 
-  constructor(private http: HttpClient, private roleService: RoleService) {
-    const storedUser = localStorage.getItem('currentUser');
-    const user: User | null = storedUser ? JSON.parse(storedUser) : null;
-    this.currentUserSubject = new BehaviorSubject<User | null>(user);
-    this.currentUser = this.currentUserSubject.asObservable();
+  constructor(private http: HttpClient, private tokenService: TokenService) {
+    this.apiUrl = environment.apis.apiUrl;
   }
 
-  public get currentUserValue(): User | null {
-    return this.currentUserSubject.value;
-  }
-
-  loginUser(userCredentials: any): Observable<any> {
-    return this.http.post<any>(`${this.urlApi}`, userCredentials)
-      .pipe(map(response => {
-        if (response && response.data && response.data.token) {
-          const decodedToken = jwtDecode<any>(response.data.token);
-          const userData: User = {
-            name: decodedToken.Name,
-            lastName: decodedToken.LastName,
-            userId: decodedToken.UserId,
-            roleId: decodedToken.RolId
-          };
-
-          localStorage.setItem('currentUser', JSON.stringify(userData));
-          localStorage.setItem('token', response.data.token);
-          this.currentUserSubject.next(userData);
+  loginUser(signin: SigninModel): Observable<any> {
+    return this.http.post<Response>(this.apiUrl.concat('/auth'), signin).pipe(
+      map((response: any) => {
+        if (response && response.success && response.data) {
+          this.tokenService.setToken(response.data);
         }
         return response;
-      }));
+      })
+    );
   }
 
   logout() {
-    localStorage.removeItem('currentUser');
-    localStorage.removeItem('token');
-    this.currentUserSubject.next(null);
+    this.tokenService.removeToken();
   }
+
+  isLoggedIn(): boolean {
+    return this.tokenService.getToken() !== null && !this.tokenService.isTokenExpired();
+  }
+
+  getUserInfo(): any {
+    return this.tokenService.getUserInfo();
+  }
+
+  // getCurrentRole(): string | null {
+  //   return this.tokenService.getRole();
+  // }
 }

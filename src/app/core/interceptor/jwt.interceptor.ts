@@ -1,16 +1,14 @@
 import { Injectable } from '@angular/core';
-import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { TokenService } from '../service/token-service/token.service';
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
-
-  constructor() { }
+  constructor(private tokenService: TokenService) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const token = localStorage.getItem('token');
-
+    const token = this.tokenService.getToken();
     if (token) {
       request = request.clone({
         setHeaders: {
@@ -18,12 +16,6 @@ export class JwtInterceptor implements HttpInterceptor {
         }
       });
     }
-
-    return next.handle(request).pipe(catchError(error => {
-      if (error instanceof HttpErrorResponse && error.status === 401) {
-
-      }
-      return throwError(() => error);
-    }));
+    return next.handle(request);
   }
 }

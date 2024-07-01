@@ -1,23 +1,28 @@
 import { NgModule } from "@angular/core";
 import { AuthenticationRoutingModule } from "./authentication-routing.module";
 import { CommonModule } from "@angular/common";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { SigninComponent } from "./signin/signin.component";
 import { ResetComponent } from "./reset/reset.component";
 import { HttpClientModule } from "@angular/common/http";
+import { RegisterComponent } from "./register/register.component";
+import { ToastrModule } from "ngx-toastr";
 
 @NgModule({
   declarations: [
     SigninComponent,
-    ResetComponent
+    ResetComponent,
+    RegisterComponent
   ],
   imports: [
     AuthenticationRoutingModule,
     CommonModule,
     FormsModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    ToastrModule
   ],
   exports: [
   ]

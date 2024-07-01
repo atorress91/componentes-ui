@@ -5,16 +5,16 @@ import { HeaderService } from "./service/header-service/header.service";
 import { NotificationService } from "./service/notification-service/notification.service";
 import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { JwtInterceptor } from "./interceptor/jwt.interceptor";
-import { RoleService } from "./service/role-service/role.service";
+import { TokenService } from "./service/token-service/token.service";
 
 @NgModule({
   imports: [],
   exports: [],
   providers: [
     AuthService,
-    RoleService,
     HeaderService,
     NotificationService,
+    TokenService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
 
   ]

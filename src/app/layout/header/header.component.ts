@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { RouteInfo } from './header.metadata';
 import { ClientRoutes } from './client-items';
+import { AdminRoutes } from './admin-items';
+import { TokenService } from '@app/core/service/token-service/token.service';
 
 @Component({
   selector: 'app-header',
@@ -10,9 +12,20 @@ import { ClientRoutes } from './client-items';
 export class HeaderComponent {
   menuItems: RouteInfo[] = [];
 
-  constructor() { }
+  constructor(private tokenService: TokenService) { }
 
   ngOnInit(): void {
-    this.menuItems = ClientRoutes;
+    this.loadMenuItems();
+  }
+
+
+  loadMenuItems() {
+    let roleId = this.tokenService.getRole();
+
+    if (roleId == '1') {
+      this.menuItems = ClientRoutes;
+    } else {
+      this.menuItems = AdminRoutes;
+    }
   }
 }

@@ -1,0 +1,94 @@
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="bg-light p-4 rounded shadow" style="max-width: 600px;">
+    <h2 class="text-center mb-4">Registro</h2>
+
+    <div *ngIf="registerForm.invalid && (registerForm.touched || registerForm.dirty)" class="alert alert-danger">
+      Por favor, corrija los errores en el formulario antes de enviar.
+    </div>
+
+    <div class="row g-3">
+
+      <div class="col-md-6">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control form-control-sm"
+               [ngClass]="{'is-invalid': registerForm.get('email')?.invalid && registerForm.get('email')?.touched}"
+               id="email" formControlName="email">
+        <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="text-danger">
+          <small *ngIf="registerForm.get('email')?.errors?.['required']">El email es requerido.</small>
+          <small *ngIf="registerForm.get('email')?.errors?.['email']">El email no es válido.</small>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <label for="password" class="form-label">Contraseña</label>
+        <input type="password" class="form-control form-control-sm"
+               [ngClass]="{'is-invalid': registerForm.get('password')?.invalid && registerForm.get('password')?.touched}"
+               id="password" formControlName="password">
+        <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="text-danger">
+          <small *ngIf="registerForm.get('password')?.errors?.['required']">La contraseña es requerida.</small>
+          <small *ngIf="registerForm.get('password')?.errors?.['minlength']">La contraseña debe tener al menos 6 caracteres.</small>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <label for="name" class="form-label">Nombre</label>
+        <input type="text" class="form-control form-control-sm"
+               [ngClass]="{'is-invalid': registerForm.get('name')?.invalid && registerForm.get('name')?.touched}"
+               id="name" formControlName="name">
+        <div *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.touched" class="text-danger">
+          <small *ngIf="registerForm.get('name')?.errors?.['required']">El nombre es requerido.</small>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <label for="lastName" class="form-label">Apellido</label>
+        <input type="text" class="form-control form-control-sm"
+               [ngClass]="{'is-invalid': registerForm.get('lastName')?.invalid && registerForm.get('lastName')?.touched}"
+               id="lastName" formControlName="lastName">
+        <div *ngIf="registerForm.get('lastName')?.invalid && registerForm.get('lastName')?.touched" class="text-danger">
+          <small *ngIf="registerForm.get('lastName')?.errors?.['required']">El apellido es requerido.</small>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <label for="address" class="form-label">Dirección</label>
+        <input type="text" class="form-control form-control-sm"
+               [ngClass]="{'is-invalid': registerForm.get('address')?.invalid && registerForm.get('address')?.touched}"
+               id="address" formControlName="address">
+        <div *ngIf="registerForm.get('address')?.invalid && registerForm.get('address')?.touched" class="text-danger">
+          <small *ngIf="registerForm.get('address')?.errors?.['required']">La dirección es requerida.</small>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <label for="contactPreferences" class="form-label">Contacto telefónico</label>
+        <input type="text" class="form-control form-control-sm"
+               [ngClass]="{'is-invalid': registerForm.get('contactPreferences')?.invalid && registerForm.get('contactPreferences')?.touched}"
+               id="contactPreferences" formControlName="contactPreferences">
+        <div *ngIf="registerForm.get('contactPreferences')?.invalid && registerForm.get('contactPreferences')?.touched" class="text-danger">
+          <small *ngIf="registerForm.get('contactPreferences')?.errors?.['required']">El contacto telefónico es requerido.</small>
+          <small *ngIf="registerForm.get('contactPreferences')?.errors?.['pattern']">Debe ser un número de 10 dígitos.</small>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <label for="rolId" class="form-label">Rol</label>
+        <select class="form-select form-select-sm"
+                [ngClass]="{'is-invalid': registerForm.get('rolId')?.invalid && registerForm.get('rolId')?.touched}"
+                id="rolId" formControlName="rolId">
+          <option [ngValue]="1">Cliente</option>
+          <option [ngValue]="2">Administrador</option>
+        </select>
+        <div *ngIf="registerForm.get('rolId')?.invalid && registerForm.get('rolId')?.touched" class="text-danger">
+          <small *ngIf="registerForm.get('rolId')?.errors?.['required']">El rol es requerido.</small>
+        </div>
+      </div>
+
+      <div class="col-12 text-center">
+        <button type="submit" class="btn btn-primary btn-sm">Registrar</button>
+      </div>
+
+    </div>
+  </form>
+</div>
