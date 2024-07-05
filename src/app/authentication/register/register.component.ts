@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { User } from '@app/core/models/user/user.model';
 import { NotificationService } from '@app/core/service/notification-service/notification.service';
 import { UserService } from '@app/core/service/user-service/user.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -13,7 +14,7 @@ export class RegisterComponent implements OnInit {
 
   registerForm!: FormGroup;
 
-  constructor(private userService: UserService, private notificationService: NotificationService) {
+  constructor(private userService: UserService, private notificationService: NotificationService,private router:Router) {
 
   }
 
@@ -54,6 +55,8 @@ export class RegisterComponent implements OnInit {
   saveUser(user: User) {
     this.userService.createUser(user).subscribe({
       next: () => {
+        this.registerForm.clearValidators();
+        this.router.navigate(['/signin']).then();
         this.notificationService.showSuccess('Usuario creado exitosamente.')
       }, error: () => {
         this.notificationService.showError('Error al crear el usuario.')

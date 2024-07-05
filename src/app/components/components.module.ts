@@ -3,17 +3,26 @@ import { FeaturedCategoriesComponent } from "./featured-categories/featured-cate
 import { FeaturedProductsComponent } from "./featured-products/featured-products.component";
 import { SliderComponent } from "./slider/slider.component";
 import { CommonModule } from "@angular/common";
+import { TableComponent } from "./table/table.component";
+import { NgxDatatableModule } from "@swimlane/ngx-datatable";
 
 @NgModule({
   declarations: [
     FeaturedCategoriesComponent,
     FeaturedProductsComponent,
-    SliderComponent],
+    SliderComponent,
+    TableComponent
+  ],
 
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    NgxDatatableModule
+  ],
 
   exports: [FeaturedCategoriesComponent,
     FeaturedProductsComponent,
-    SliderComponent]
+    SliderComponent,
+    TableComponent
+  ]
 })
 export class ComponentsModule { }

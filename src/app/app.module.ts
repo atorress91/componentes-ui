@@ -36,7 +36,11 @@ import { AdminModule } from "./admin/admin.module";
     LoadingBarRouterModule,
     LoadingBarHttpClientModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+    }),
   ],
   providers: [
     { provide: LocationStrategy, useClass: PathLocationStrategy },

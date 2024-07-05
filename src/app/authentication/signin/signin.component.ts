@@ -30,11 +30,11 @@ export class SigninComponent {
           this.redirectBasedOnRole();
         } else {
 
-          this.notificationService.showError(response.message || 'Autenticación fallida');
+          this.notificationService.showError('Error en la autenticación.');
         }
       },
       (error) => {
-        this.notificationService.showError('Error en la autenticación');
+        this.notificationService.showError('Autenticación fallida, correo o contraseña incorrectas.');
       }
     );
   }

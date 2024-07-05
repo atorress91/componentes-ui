@@ -6,6 +6,7 @@ import { NotificationService } from "./service/notification-service/notification
 import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { JwtInterceptor } from "./interceptor/jwt.interceptor";
 import { TokenService } from "./service/token-service/token.service";
+import { LogService } from "./service/log-service/log.service";
 
 @NgModule({
   imports: [],
@@ -15,6 +16,7 @@ import { TokenService } from "./service/token-service/token.service";
     HeaderService,
     NotificationService,
     TokenService,
+    LogService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
 
   ]

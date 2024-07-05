@@ -22,16 +22,6 @@ export const ClientRoutes: RouteInfo[] = [
     submenu: [],
   },
   {
-    path: '/app/products',
-    title: 'Home',
-    icon: 'bi-house',
-    class: '',
-    groupTitle: false,
-    badge: '',
-    badgeClass: '',
-    submenu: [],
-  },
-  {
     path: '/admin/products',
     title: 'Mis Facturas',
     icon: 'bi-receipt',

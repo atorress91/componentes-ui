@@ -22,4 +22,12 @@ export class UserService {
       })
     );
   }
+
+  getAllUsers(){
+    return this.http.get<Response>(this.urlApi.concat('/user/get_all_users')).pipe(
+      map((data)=>{
+        return data;
+      })
+    )
+  }
 }

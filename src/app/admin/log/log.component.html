@@ -1,0 +1,40 @@
+<div class="container mt-4">
+  <h2>System Logs</h2>
+
+  <div class="mb-3 row">
+    <div class="col-md-5">
+      <input type="text" class="form-control" placeholder="Search logs..." [(ngModel)]="searchTerm"
+        (ngModelChange)="filterLogs()">
+
+    </div>
+    <div class="col-md-5">
+      <select title="select_logs" class="form-control" [(ngModel)]="selectedLevel" (ngModelChange)="filterLogs()">
+        <option *ngFor="let level of levels" [value]="level">{{level}}</option>
+      </select>
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-danger" (click)="clearLogs()">Limpiar Logs</button>
+    </div>
+  </div>
+
+  <div class="log-list">
+    <div *ngFor="let log of filteredLogs" class="card mb-3">
+      <div class="card-header d-flex justify-content-between align-items-center" [ngClass]="{'bg-danger text-white': log.level === 'Error',
+                       'bg-warning': log.level === 'Warning',
+                       'bg-info text-white': log.level === 'Info',
+                       'bg-secondary text-white': log.level === 'Database'}">
+        <span>{{log.date}} {{log.time}}</span>
+        <span class="badge" [ngClass]="{'bg-danger': log.level === 'Error',
+                                        'bg-warning': log.level === 'Warning',
+                                        'bg-info': log.level === 'Info',
+                                        'bg-secondary': log.level === 'Database'}">
+          {{log.level}}
+        </span>
+      </div>
+      <div class="card-body">
+        <p *ngFor="let line of log.message" class="card-text" [ngClass]="{'text-monospace': log.level === 'Database'}">
+          {{line}}</p>
+      </div>
+    </div>
+  </div>
+</div>

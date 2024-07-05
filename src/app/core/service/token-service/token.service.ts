@@ -16,7 +16,12 @@ interface DecodedToken {
 export class TokenService {
   private decodedToken: DecodedToken | null = null;
 
-  constructor() { }
+  constructor() {
+    const token = this.getToken();
+    if (token) {
+      this.decodeToken(token);
+    }
+  }
 
   setToken(token: string): void {
     localStorage.setItem('token', token);

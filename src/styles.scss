@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -15,7 +16,102 @@ app-footer {
   flex-shrink: 0;
 }
 
-.btn-primary{
+.btn-primary {
   background: linear-gradient(90deg, #1a1a2e 0%, #16213e 100%);
 }
 
+
+//toastr
+// Estilos modernos para Toastr
+
+// Contenedor principal
+.toast-container {
+  position: fixed !important;
+  top: 20px !important;
+  right: 20px !important;
+  left: auto !important;
+}
+
+// Estilo base para todas las notificaciones
+.toast-container .ngx-toastr {
+  width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 15px 20px;
+  font-family: 'Arial', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  opacity: 0.95;
+  transition: all 0.3s ease;
+
+  &:hover {
+    opacity: 1;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+}
+
+// Estilos específicos para éxito
+.toast-success {
+  background-color: #4CAF50;
+  border-left: 5px solid darken(#4CAF50, 10%);
+
+  .toast-message {
+    color: white;
+  }
+}
+
+// Estilos específicos para error
+.toast-error {
+  background-color: #F44336;
+  border-left: 5px solid darken(#F44336, 10%);
+
+  .toast-message {
+    color: white;
+  }
+}
+
+// Título de la notificación
+.toast-title {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+// Icono de cierre
+.toast-close-button {
+  color: #fff;
+  opacity: 0.7;
+  font-size: 20px;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+// Animaciones
+.toast-container .ngx-toastr {
+
+  &.toast-animation-enter,
+  &.toast-animation-exit {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  &.toast-animation-enter {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+
+  &.toast-animation-enter-active {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  &.toast-animation-exit {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  &.toast-animation-exit-active {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+}

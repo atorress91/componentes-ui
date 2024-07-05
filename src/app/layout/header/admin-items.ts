@@ -2,7 +2,7 @@ import { RouteInfo } from "./header.metadata";
 
 export const AdminRoutes: RouteInfo[] = [
   {
-    path: '/admin/home',
+    path: '/admin/home-admin',
     title: 'Inicio',
     icon: 'bi-house-door',
     class: '',
@@ -52,16 +52,6 @@ export const AdminRoutes: RouteInfo[] = [
     submenu: [],
   },
   {
-    path: '/admin/analytics',
-    title: 'Analíticas',
-    icon: 'bi-graph-up',
-    class: '',
-    groupTitle: false,
-    badge: '',
-    badgeClass: '',
-    submenu: [],
-  },
-  {
     path: '/admin/settings',
     title: 'Configuración',
     icon: 'bi-gear',
@@ -69,6 +59,17 @@ export const AdminRoutes: RouteInfo[] = [
     groupTitle: false,
     badge: '',
     badgeClass: '',
-    submenu: [],
+    submenu: [
+      {
+        path: '/admin/logs',
+        title: 'Logs',
+        icon: 'bi-graph-up',
+        class: '',
+        groupTitle: false,
+        badge: '',
+        badgeClass: '',
+        submenu: [],
+      },
+    ],
   },
 ];
