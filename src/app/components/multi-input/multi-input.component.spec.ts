@@ -1,32 +1,26 @@
+import { MultiInputComponent } from './multi-input.component';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientModule } from '@angular/common/http';
-import { ToastrModule } from 'ngx-toastr';
-import { ComponentsModule } from '@app/components/components.module';
-import { RegisterComponent } from './register.component';
 
-describe('RegisterComponent', () => {
-  let component: RegisterComponent;
-  let fixture: ComponentFixture<RegisterComponent>;
+describe('MultiInputComponent', () => {
+  let component: MultiInputComponent;
+  let fixture: ComponentFixture<MultiInputComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [RegisterComponent],
+      declarations: [MultiInputComponent],
       imports: [
         FormsModule,
         ReactiveFormsModule,
         RouterTestingModule,
-        HttpClientModule,
-        ToastrModule.forRoot(),
-        ComponentsModule
+        HttpClientModule
       ]
     })
       .compileComponents();
-  });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(RegisterComponent);
+    fixture = TestBed.createComponent(MultiInputComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -34,6 +28,4 @@ describe('RegisterComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-
 });

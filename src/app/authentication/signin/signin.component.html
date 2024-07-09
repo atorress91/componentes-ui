@@ -4,20 +4,14 @@
       <h2 class="text-center mb-4">Iniciar sesión</h2>
       <form (ngSubmit)="loginSubmitted()">
         <div class="mb-3">
-          <label for="username" class="form-label">Correo electronico</label>
-          <div class="input-group">
-            <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
-            <input type="text" class="form-control" id="username" [(ngModel)]="signinModel.email" name="username"
-              placeholder="Ingrese su correo electronico">
-          </div>
+          <app-multi-input label="Correo electrónico" controlType="email" [(value)]="signinModel.email"
+            placeholder="Ingrese su correo electrónico" [required]="true">
+          </app-multi-input>
         </div>
         <div class="mb-3">
-          <label for="password" class="form-label">Contraseña</label>
-          <div class="input-group">
-            <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
-            <input type="password" class="form-control" id="password" [(ngModel)]="signinModel.password" name="password"
-              placeholder="Ingrese su contraseña">
-          </div>
+          <app-multi-input label="Contraseña" controlType="password" [(value)]="signinModel.password"
+            placeholder="Ingrese su contraseña" [required]="true">
+          </app-multi-input>
         </div>
         <div class="d-grid mb-3">
           <button type="submit" class="btn btn-primary btn-block">Ingresar</button>

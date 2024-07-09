@@ -8,6 +8,7 @@ import { ResetComponent } from "./reset/reset.component";
 import { HttpClientModule } from "@angular/common/http";
 import { RegisterComponent } from "./register/register.component";
 import { ToastrModule } from "ngx-toastr";
+import { ComponentsModule } from "@app/components/components.module";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ToastrModule } from "ngx-toastr";
     RouterModule,
     HttpClientModule,
     ReactiveFormsModule,
-    ToastrModule
+    ToastrModule,
+    ComponentsModule
   ],
   exports: [
   ]

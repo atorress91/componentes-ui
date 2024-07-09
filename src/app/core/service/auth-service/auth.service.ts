@@ -21,10 +21,10 @@ export class AuthService {
     return this.http.post<Response>(this.apiUrl.concat('/auth'), signin).pipe(
       map((response: any) => {
         if (response && response.success && response.data) {
-          console.log('Esto es lo que estoy enviando: ' + signin + 'esto es lo que estoy recibiendo del servidor: ' + response)
+
           this.tokenService.setToken(response.data);
         }
-        console.log('Esto es lo que estoy enviando: ' + signin + 'esto es lo que estoy recibiendo del servidor: ' + response.data)
+
         return response;
       })
     );

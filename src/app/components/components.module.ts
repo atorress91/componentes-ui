@@ -5,24 +5,30 @@ import { SliderComponent } from "./slider/slider.component";
 import { CommonModule } from "@angular/common";
 import { TableComponent } from "./table/table.component";
 import { NgxDatatableModule } from "@swimlane/ngx-datatable";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { MultiInputComponent } from "./multi-input/multi-input.component";
 
 @NgModule({
   declarations: [
     FeaturedCategoriesComponent,
     FeaturedProductsComponent,
     SliderComponent,
-    TableComponent
+    TableComponent,
+    MultiInputComponent
   ],
 
   imports: [
     CommonModule,
-    NgxDatatableModule
+    NgxDatatableModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
 
   exports: [FeaturedCategoriesComponent,
     FeaturedProductsComponent,
     SliderComponent,
-    TableComponent
+    TableComponent,
+    MultiInputComponent
   ]
 })
 export class ComponentsModule { }
