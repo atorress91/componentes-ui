@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { ComponentsModule } from './components/components.module';
 import { ToastrModule } from 'ngx-toastr';
+import { AngularFireModule } from '@angular/fire/compat';
 
 import { LayoutModule } from './layout/layout.module';
 import { AppComponent } from "./app.component";
@@ -16,6 +17,7 @@ import { ClientModule } from "./client/client.module";
 import { CoreModule } from "./core/core.module";
 import { AuthenticationModule } from "./authentication/authentication.module";
 import { AdminModule } from "./admin/admin.module";
+import { environment } from "src/environments/environment";
 
 
 @NgModule({
@@ -41,6 +43,7 @@ import { AdminModule } from "./admin/admin.module";
       positionClass: 'toast-top-right',
       preventDuplicates: true,
     }),
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [
     { provide: LocationStrategy, useClass: PathLocationStrategy },

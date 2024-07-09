@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { SigninComponent } from './signin.component';
 import { ComponentsModule } from '@app/components/components.module';
@@ -12,16 +12,14 @@ describe('SigninComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SigninComponent],
-      imports: [
-        FormsModule,
+    declarations: [SigninComponent],
+    imports: [FormsModule,
         ReactiveFormsModule,
         RouterTestingModule,
-        HttpClientModule,
         ToastrModule.forRoot(),
-        ComponentsModule
-      ]
-    })
+        ComponentsModule],
+    providers: [provideHttpClient(withInterceptorsFromDi())]
+})
       .compileComponents();
   });
 

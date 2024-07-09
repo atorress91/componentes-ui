@@ -5,30 +5,23 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { SigninComponent } from "./signin/signin.component";
 import { ResetComponent } from "./reset/reset.component";
-import { HttpClientModule } from "@angular/common/http";
+import { provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
 import { RegisterComponent } from "./register/register.component";
 import { ToastrModule } from "ngx-toastr";
 import { ComponentsModule } from "@app/components/components.module";
 
-@NgModule({
-  declarations: [
-    SigninComponent,
-    ResetComponent,
-    RegisterComponent
-  ],
-  imports: [
-    AuthenticationRoutingModule,
-    CommonModule,
-    FormsModule,
-    RouterModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    ToastrModule,
-    ComponentsModule
-  ],
-  exports: [
-  ]
-})
+@NgModule({ declarations: [
+        SigninComponent,
+        ResetComponent,
+        RegisterComponent
+    ],
+    exports: [], imports: [AuthenticationRoutingModule,
+        CommonModule,
+        FormsModule,
+        RouterModule,
+        ReactiveFormsModule,
+        ToastrModule,
+        ComponentsModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AuthenticationModule {
 
 }

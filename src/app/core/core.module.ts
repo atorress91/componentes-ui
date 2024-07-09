@@ -7,6 +7,7 @@ import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { JwtInterceptor } from "./interceptor/jwt.interceptor";
 import { TokenService } from "./service/token-service/token.service";
 import { LogService } from "./service/log-service/log.service";
+import { FirebaseService } from "./service/firebase-service/firebase.service";
 
 @NgModule({
   imports: [],
@@ -17,6 +18,7 @@ import { LogService } from "./service/log-service/log.service";
     NotificationService,
     TokenService,
     LogService,
+    FirebaseService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
 
   ]
