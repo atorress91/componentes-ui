@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
-import { FormControl, ValidatorFn, Validators } from '@angular/forms';
+import {Component, EventEmitter, Input, Output, OnInit} from '@angular/core';
+import {FormControl, ValidatorFn, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-multi-input',
@@ -24,7 +24,7 @@ export class MultiInputComponent implements OnInit {
   uniqueId: string;
 
   constructor() {
-    this.uniqueId = 'input_' + Math.random().toString(36).substr(2, 9);
+    this.uniqueId = 'input_' + Math.random().toString(36).slice(2, 11);
   }
 
   ngOnInit() {

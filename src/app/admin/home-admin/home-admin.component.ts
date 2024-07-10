@@ -7,6 +7,7 @@ import { UserService } from "@app/core/service/user-service/user.service";
   styleUrl: './home-admin.component.scss'
 })
 export class HomeAdminComponent implements OnInit {
+
   @Input() stats: { users: number, sales: number, products: number } = { users: 0, sales: 0, products: 0 };
   @Input() users: { userId: number, name: string, email: string }[] = [];
   @Input() products: { id: number, name: string, price: number, stock: number }[] = [];
@@ -46,6 +47,19 @@ export class HomeAdminComponent implements OnInit {
         console.error(error);
       }
     })
+  }
+
+  deleteProduct(_t35: { id: number; name: string; price: number; stock: number; }) {
+    throw new Error('Method not implemented.');
+  }
+  editProduct(_t35: { id: number; name: string; price: number; stock: number; }) {
+    throw new Error('Method not implemented.');
+  }
+  deleteUser(_t24: { userId: number; name: string; email: string; }) {
+    throw new Error('Method not implemented.');
+  }
+  editUser(_t24: { userId: number; name: string; email: string; }) {
+    throw new Error('Method not implemented.');
   }
 }
 

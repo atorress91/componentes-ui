@@ -12,7 +12,7 @@ export const AdminRoutes: RouteInfo[] = [
     submenu: [],
   },
   {
-    path: '/admin/products',
+    path: '/admin/product-list',
     title: 'Productos',
     icon: 'bi-box-seam',
     class: '',

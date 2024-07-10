@@ -5,11 +5,13 @@ import { HomeAdminComponent } from "./home-admin/home-admin.component";
 import { ComponentsModule } from "@app/components/components.module";
 import { LogComponent } from "./log/log.component";
 import { FormsModule } from "@angular/forms";
+import { ProductsListComponent } from "./products-list/products-list.component";
 
 @NgModule({
   declarations: [
     HomeAdminComponent,
-    LogComponent
+    LogComponent,
+    ProductsListComponent
   ],
   imports: [
     AdminRoutingModule,

@@ -1,0 +1,20 @@
+<div *ngIf="config.type === 'button'" class="btn-group">
+  <button type="button" [ngClass]="config.cssClass" (click)="handleClick()">
+    {{ config.label }}
+  </button>
+</div>
+
+<div *ngIf="config.type === 'dropdown'" class="btn-group">
+  <button type="button" class="btn dropdown-toggle" [ngClass]="config.cssClass" data-bs-toggle="dropdown"
+    aria-expanded="false">
+    {{ config.label }}
+  </button>
+  <ul class="dropdown-menu">
+    <li *ngFor="let action of config.actions">
+      <a class="dropdown-item" href="#" [ngClass]="action.cssClass"
+        (click)="handleClick(action.id); $event.preventDefault()">
+        {{ action.label }}
+      </a>
+    </li>
+  </ul>
+</div>

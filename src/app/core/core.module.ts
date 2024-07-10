@@ -8,6 +8,7 @@ import { JwtInterceptor } from "./interceptor/jwt.interceptor";
 import { TokenService } from "./service/token-service/token.service";
 import { LogService } from "./service/log-service/log.service";
 import { FirebaseService } from "./service/firebase-service/firebase.service";
+import { ProductService } from "./service/product-service/product.service";
 
 @NgModule({
   imports: [],
@@ -19,8 +20,8 @@ import { FirebaseService } from "./service/firebase-service/firebase.service";
     TokenService,
     LogService,
     FirebaseService,
+    ProductService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
-
   ]
 })
 export class CoreModule {

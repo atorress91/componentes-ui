@@ -7,6 +7,9 @@ import { TableComponent } from "./table/table.component";
 import { NgxDatatableModule } from "@swimlane/ngx-datatable";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MultiInputComponent } from "./multi-input/multi-input.component";
+import { NgxDropzoneModule } from "ngx-dropzone";
+import { DropzoneComponent } from "./dropzone/dropzone.component";
+import { DynamicButtonComponent } from "./dynamic-button/dynamic-button.component";
 
 @NgModule({
   declarations: [
@@ -14,21 +17,25 @@ import { MultiInputComponent } from "./multi-input/multi-input.component";
     FeaturedProductsComponent,
     SliderComponent,
     TableComponent,
-    MultiInputComponent
+    MultiInputComponent,
+    DropzoneComponent,
+    DynamicButtonComponent
   ],
 
   imports: [
     CommonModule,
     NgxDatatableModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxDropzoneModule
   ],
 
   exports: [FeaturedCategoriesComponent,
     FeaturedProductsComponent,
     SliderComponent,
     TableComponent,
-    MultiInputComponent
+    MultiInputComponent,
+    DynamicButtonComponent
   ]
 })
 export class ComponentsModule { }

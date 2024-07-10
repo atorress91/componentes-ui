@@ -29,9 +29,18 @@
 </div>
 
 <div class="container mt-5">
-  <app-table [title]="'Usuarios'" [rows]="users" [columns]="userColumns"></app-table>
+  <app-table [title]="'Usuarios'" [rows]="users" [columns]="userColumns">
+    <ng-container *ngFor="let user of users">
+
+    </ng-container>
+  </app-table>
 </div>
 
 <div class="container mt-5">
-  <app-table [title]="'Productos'" [rows]="products" [columns]="productColumns"></app-table>
+  <app-table [title]="'Productos'" [rows]="products" [columns]="productColumns">
+    <ng-container *ngFor="let product of products">
+
+    </ng-container>
+  </app-table>
 </div>
+

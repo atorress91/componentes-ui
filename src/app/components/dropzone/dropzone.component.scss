@@ -1,0 +1,23 @@
+ngx-dropzone {
+  border: 2px dashed #007bff;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  margin: 10px 0;
+
+  ngx-dropzone-label {
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  ngx-dropzone-preview {
+    background: #fff;
+    border-radius: 3px;
+    padding: 10px;
+    margin-top: 10px;
+  }
+}
