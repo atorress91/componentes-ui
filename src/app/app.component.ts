@@ -8,8 +8,15 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   title = 'componentes-ui';
 
-
   ngOnInit(): void {
 
+  }
+
+  void() {
+    console.log('Estoy probando a ver si esto sirve')
+  }
+
+  void1() {
+    console.log('Estoy probando a ver si esto sirve')
   }
 }
