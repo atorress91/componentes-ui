@@ -30,7 +30,8 @@ import { DynamicButtonComponent } from "./dynamic-button/dynamic-button.componen
     NgxDropzoneModule
   ],
 
-  exports: [FeaturedCategoriesComponent,
+  exports: [
+    FeaturedCategoriesComponent,
     FeaturedProductsComponent,
     SliderComponent,
     TableComponent,

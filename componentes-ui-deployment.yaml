@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: componentes-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: componentes-ui
+  template:
+    metadata:
+      labels:
+        app: componentes-ui
+    spec:
+      nodeSelector:
+        doks.digitalocean.com/node-pool: pool-h8ojusfpl-rd1tb
+      containers:
+        - name: componentes-ui
+          image: tu-registro/componentes-ui:latest
+          resources:
+            limits:
+              memory: 500Mi
+            requests:
+              memory: 250Mi
+          ports:
+            - containerPort: 80
